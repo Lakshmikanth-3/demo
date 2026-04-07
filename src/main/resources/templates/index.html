@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>App</title></head>
+<body>
+
+    <h3 th:text="${msg}"></h3>
+
+    <h2>Add User</h2>
+    <form action="/save" method="post">
+        <input type="text" name="name" placeholder="Name"/><br><br>
+        <input type="text" name="email" placeholder="Email"/><br><br>
+        <button type="submit">Save</button>
+    </form>
+
+    <h2>All Users</h2>
+    <table border="1">
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.email}"></td>
+        </tr>
+    </table>
+
+    <a href="/all">Show All</a>
+
+</body>
+</html>
